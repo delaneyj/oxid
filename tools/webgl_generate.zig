@@ -636,7 +636,7 @@ fn nextNewline(s: []const u8) usize {
 }
 
 fn writeZigFile(filename: []const u8) !void {
-    const file = try std.fs.File.openWrite(filename);
+    const file = try std.fs.cwd().createFile(filename, .{});
     defer file.close();
 
     var stream = &std.fs.File.outStream(file).stream;
@@ -699,7 +699,7 @@ fn writeZigFile(filename: []const u8) !void {
 }
 
 fn writeJsFile(filename: []const u8) !void {
-    const file = try std.fs.File.openWrite(filename);
+    const file = try std.fs.cwd().createFile(filename, .{});
     defer file.close();
 
     var stream = &std.fs.File.outStream(file).stream;

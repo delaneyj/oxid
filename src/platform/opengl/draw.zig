@@ -335,15 +335,15 @@ pub fn tile(
             GLfloat,
             texcoord2f,
             switch (transform) {
-                .Identity =>
+                .identity =>
                     &[12]f32{s0,t0, s0,t1, s1,t1, s1,t1, s1,t0, s0,t0},
-                .FlipVertical =>
+                .flip_vert =>
                     &[12]f32{s0,t1, s0,t0, s1,t0, s1,t0, s1,t1, s0,t1},
-                .FlipHorizontal =>
+                .flip_horz =>
                     &[12]f32{s1,t0, s1,t1, s0,t1, s0,t1, s0,t0, s1,t0},
-                .RotateClockwise =>
+                .rotate_cw =>
                     &[12]f32{s0,t1, s1,t1, s1,t0, s1,t0, s0,t0, s0,t1},
-                .RotateCounterClockwise =>
+                .rotate_ccw =>
                     &[12]f32{s1,t0, s0,t0, s0,t1, s0,t1, s1,t1, s1,t0},
             },
         );
